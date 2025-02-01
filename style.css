@@ -1,0 +1,262 @@
+/* Сброс основных стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основные стили */
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    --s: 37px; /* Управление размером */
+
+    --c: #0000, #3a3a3a 0.5deg 119.5deg, #0000 120deg;
+    --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+    --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+    --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+    background: var(--g1),
+                var(--g1) var(--s) calc(1.73 * var(--s)),
+                var(--g2),
+                var(--g2) var(--s) calc(1.73 * var(--s)),
+                var(--g3) var(--s) 0,
+                var(--g3) 0 calc(1.73 * var(--s)),
+                #1e1e1e;
+    background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Контейнер формы */
+.container {
+    width: 480px;
+    padding: 20px;
+    background: #2e2e2e; /* Тёмно-серый фон */
+    border: 2px solid #1a1a1a; /* Тёмно-серая граница */
+    border-radius: 15px;
+    box-shadow: 4px 4px #1a1a1a;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #f0f0f0; /* Светло-серый цвет текста */
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    color: #b0b0b0; /* Серый цвет текста */
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border: 2px solid #1a1a1a; /* Тёмно-серая граница */
+    border-radius: 10px;
+    background-color: #3a3a3a; /* Серый фон поля */
+    box-shadow: 4px 4px #1a1a1a;
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0f0f0; /* Светло-серый цвет текста */
+    outline: none;
+}
+
+.input-group input::placeholder,
+.input-group select::placeholder {
+    color: #b0b0b0;
+    opacity: 0.8;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #5a5a5a; /* Светлее при фокусе */
+}
+
+/* Кнопка обмена */
+.swap-container {
+    display: flex;
+    justify-content: center;
+}
+
+.swap-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    border: 2px solid #3a3a3a;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 4px 4px #1a1a1a;
+    transition: transform 0.2s ease;
+    padding: 0;
+}
+
+.swap-btn .swap-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.swap-btn:hover {
+    transform: scale(1.05);
+}
+
+.swap-btn:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px #1a1a1a;
+}
+
+
+button {
+    width: 200px;
+    height: 50px;
+    margin: 5px auto 0 auto;
+    border: 2px solid #1a1a1a;
+    border-radius: 10px;
+    background-color: #3a3a3a; /* Серый фон кнопки */
+    box-shadow: 4px 4px #1a1a1a;
+    font-size: 18px;
+    font-weight: 600;
+    color: #f0f0f0; /* Светлый цвет текста */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #5a5a5a; /* Фон при наведении */
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px #1a1a1a;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #2e2e2e; /* Тёмно-серый фон */
+    border: 2px solid #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 4px 4px #1a1a1a;
+    font-size: 20px;
+    font-weight: 600;
+    color: #f0f0f0; /* Светлый цвет текста */
+    text-align: center;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        width: 160px;
+        height: 45px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    .swap-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    button {
+        width: 140px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    #result {
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+
+/* Стиль для калькулятора */
+.main-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    width: 45%;
+    margin: 10px;
+}
+
+.calculator {
+    width: 100%;
+}
+
+#calculator-display {
+    width: 100%;
+    height: 40px;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.calculator-buttons button {
+    width: 100%;
+    height: 48px;
+    font-size: 18px;
+}
+
+
+
+
+
